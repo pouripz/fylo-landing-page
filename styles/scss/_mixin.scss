@@ -1,0 +1,83 @@
+// font
+
+@mixin open-sans-400 {
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+}
+
+@mixin raleway-400 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 400;
+}
+
+@mixin raleway-700 {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+}
+
+// button
+
+@mixin btn {
+  display: inline-block;
+  background-color: $btnClr;
+  padding: 1rem 3.5rem;
+  outline: none;
+  stroke: none;
+  border: none;
+  color: $bodyBg-textClr;
+  border-radius: 3px;
+  @include open-sans-400;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 3px 8px;
+  &:hover {
+    background-color: hsl(224, 100%, 68%);
+    transition: all 150ms ease-in-out;
+  }
+}
+
+// input
+
+@mixin input {
+  transition: all 200ms ease-in-out;
+  stroke: none;
+  outline: none;
+  border: 1px solid $primaryClr;
+  padding: 1rem;
+  border-radius: 3px;
+  @include open-sans-400;
+  &:invalid {
+    border: 1px solid #f03e3e;
+  }
+}
+
+// footer contact icon style
+
+@mixin footerContactIcon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 1.2rem;
+}
+
+// responsive
+
+@mixin mediaQuery($size) {
+  @if ($size == sm) {
+    @media all and (min-width: 640px) {
+      @content;
+    }
+  } @else if ($size == md) {
+    @media all and (min-width: 768px) {
+      @content;
+    }
+  } @else if ($size == lg) {
+    @media all and (min-width: 1024px) {
+      @content;
+    }
+  } @else if ($size == xl) {
+    @media all and (min-width: 1280px) {
+      @content;
+    }
+  }
+}
